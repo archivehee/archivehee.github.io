@@ -147,7 +147,11 @@ html[lang=ko] h2 {
   }
 
 }
-
+/* 줄바꿈 */
+.publication p,
+.project p {
+  white-space: pre-line;
+}
 
 /* 01. SHARED COMPONENTS �� Section headings, links, tags, authors */
 .eyebrow, .index {
