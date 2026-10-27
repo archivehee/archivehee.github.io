@@ -49,7 +49,30 @@ if (Array.isArray(p.authors) && p.authors.length > 0) {
   body.append(authors);
 
 }const links=el('div',undefined,'pub-links');if(p.paper)links.append(link({en:'Read paper ↗',ko:'논문 읽기 ↗'},p.paper));if(p.code)links.append(link('Code ↗',p.code));body.append(links);row.append(meta,body);return row;}):[empty()]));
- target('project-list').replaceChildren(...d.projects.map(p=>{const row=el('article',undefined,'project'),meta=el('div'),body=el('div');meta.append(el('div',p.category,'category'),el('small',p.date));body.append(el('h3',p.title),el('p',p.description));const tags=el('div',undefined,'tags');tags.append(...p.tags.map(s=>el('span',s,'tag')));body.append(tags);if(p.url)body.append(link({en:'View project ↗',ko:'프로젝트 보기 ↗'},p.url));row.append(meta,body);return row;}));
+ target('project-list').replaceChildren(...d.projects.map(p=>{const row=el('article',undefined,'project'),meta=el('div'),body=el('div');meta.append(el('div',p.category,'category'),el('small',p.date));body.append(el('h3',p.title),el('p',p.description));if (Array.isArray(p.authors) && p.authors.length > 0) {
+  const authors = el('p', undefined, 'pub-authors');
+
+  p.authors.forEach((name, index) => {
+    if (index > 0) {
+      authors.append(document.createTextNode(', '));
+    }
+
+    const cleanName = name.replace(/†/g, '').trim();
+    const isMe = ['daehee kang', '강대희'].includes(
+      cleanName.toLowerCase()
+    );
+
+    authors.append(
+      el(isMe ? 'strong' : 'span', cleanName, isMe ? 'author-me' : undefined)
+    );
+
+    if (name.includes('†')) {
+      authors.append(el('sup', '†', 'author-mark'));
+    }
+  });
+
+  body.append(authors);
+}const tags=el('div',undefined,'tags');tags.append(...p.tags.map(s=>el('span',s,'tag')));body.append(tags);if(p.url)body.append(link({en:'View project ↗',ko:'프로젝트 보기 ↗'},p.url));row.append(meta,body);return row;}));
  target('patent-list').replaceChildren(...(d.patents.length?d.patents.map(p=>{const row=el('article',undefined,'timeline-row');row.append(el('h3',p.title),el('p',p.description));if(p.url)row.append(link({en:'View patent ↗',ko:'특허 보기 ↗'},p.url));return row;}):[empty()]));
  target('skill-list').replaceChildren(...d.skills.map(s=>{const group=el('div',undefined,'skill-group'),tags=el('div',undefined,'tags');tags.append(...s.items.map(x=>el('span',x,'tag')));group.append(el('h3',s.title),tags);return group;}));
  set('certificate',d.certificate);set('hobby-title',d.hobby.title);set('hobby-description',d.hobby.description);
