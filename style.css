@@ -93,3 +93,38 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
  .coffee-note{font-size:var(--mobile-small);letter-spacing:1px;margin-top:24px}
  footer{flex-wrap:wrap;padding-top:24px;padding-bottom:24px}footer p,footer>a:last-child{font-size:var(--mobile-small)}footer p{order:3;width:100%;margin:0}
 }
+/* Publication authors: same font as title, 2px smaller */
+.publication p.pub-authors {
+  font-family: var(--sans);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0 0 17px;
+}
+
+.publication .pub-authors .author-me {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+@media (max-width: 768px) {
+  .publication p.pub-authors {
+    font-size: clamp(16px, calc(4.6vw - 2px), 20px);
+  }
+}
+.publication .pub-author-note {
+  display: block;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--muted, #666);
+  margin: -8px 0 17px;
+}
+.publication .author-mark {
+  font-size: 0.7em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 1px;
+}
