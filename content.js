@@ -22,25 +22,26 @@ window.PORTFOLIO = {
     title:'Multi-TAP: Multi-criteria Target Adaptive Persona Modeling for Cross-domain Recommendation',
     venue:'KDD 2026',date:'2026.08.16',
     description:{en:'What to transfer: multi-preference personas. How to transfer: doppelganger-based source-domain personas.',ko:'무엇을 전이할 것인가: 다중 선호 페르소나. 어떻게 전이할 것인가: Doppelganger 기반 Source-domain 페르소나.'},
-    authors: ['Daehee, Kang', 'Yeon-Chang, Lee†'],
+    authors: ['Daehee Kang', 'Yeon-Chang Lee†'],
     paper:'https://dl.acm.org/doi/10.1145/3770855.3818138',code:'https://github.com/archivehee/Multi-TAP'
   }],
   domestic:[
     {title:'Impact Analysis of Inter-Domain Embedding Generation Strategies in Cross-Domain Recommender Systems',
      venue:'KCC 2025',
      date:'2025.06',
-     authors: ['Daehee, Kang', 'Yeon-Chang, Lee†'],
+     authors: ['Daehee Kang', 'Yeon-Chang Lee†'],
 },
     {title:'A Comparative Study of Machine Learning and DeepLearning Methods for Water Pipeline Leakage Classification',
      venue:'KSC 2025',
      date:'2025.12',
-     authors: ['Daehee, Kang', 'Yeon-Chang, Lee†'],
+     authors: ['Daehee Kang', 'Yeon-Chang Lee†'],
 }
   ],
   projects:[{
     title:'Korea Patent–Firm Matched Data (1947–2023)',date:'2024.05 — 2024.12',category:'DATA MINING',
     description:{en:'Building a linked dataset that connects Korean corporate patent applications with company metadata, addressing the gap between patent records and firm-level information.',ko:'한국 기업의 특허 출원 정보와 기업 메타데이터를 연결하는 데이터셋 구축 프로젝트입니다. 특허 기록과 기업 기본 정보 사이의 연결 데이터 부족 문제를 다룹니다.'},
     tags:['Data Mining','Entity Matching','UNIST'],
+    authors: ['Daehee Kang', 'Seungryul Ryan Shin†'],
     url:'https://zenodo.org/records/17510786'
   }],
   patents:[],
