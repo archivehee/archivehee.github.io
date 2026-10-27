@@ -21,7 +21,7 @@ window.PORTFOLIO = {
   international:[{
     title:'Multi-TAP: Multi-criteria Target Adaptive Persona Modeling for Cross-domain Recommendation',
     venue:'KDD 2026',date:'2026.08.16',
-    description:{en:'What to transfer: multi-preference personas. How to transfer: doppelganger-based source-domain personas.',ko:'무엇을 전이할 것인가: 다중 선호 페르소나. 어떻게 전이할 것인가: Doppelganger 기반 Source-domain 페르소나.'},
+    description:{en:'What to transfer: multi-preference personas. \nHow to transfer: doppelganger-based source-domain personas.',ko:'무엇을 전이할 것인가: 다중 선호 페르소나. 어떻게 전이할 것인가: Doppelganger 기반 Source-domain 페르소나.'},
     authors: ['Daehee Kang', 'Yeon-Chang Lee†'],
     paper:'https://dl.acm.org/doi/10.1145/3770855.3818138',code:'https://github.com/archivehee/Multi-TAP'
   }],
