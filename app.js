@@ -17,7 +17,45 @@ function render(){
  target('lang').textContent=lang==='en'?'KO ↗':'EN ↗';target('lang').setAttribute('aria-label',lang==='en'?'한국어로 전환':'Switch to English');
  target('interests').replaceChildren(...d.profile.interests.map(x=>el('span',x)));
  for(const kind of ['education','experience'])target(kind).replaceChildren(...d.profile[kind].map(x=>{const row=el('div',undefined,'timeline-row');row.append(el('small',x.date),el('p',x));if(x.detail)row.append(el('em',x.detail));return row;}));
- for(const kind of ['international','domestic'])target(kind).replaceChildren(...(d[kind].length?d[kind].map(p=>{const row=el('article',undefined,'publication');const meta=el('div',undefined,'pub-meta');meta.append(el('span',p.venue,'venue'),el('div',p.date,'pub-date'));const body=el('div');body.append(el('h4',p.title));if(p.description)body.append(el('p',p.description));const links=el('div',undefined,'pub-links');if(p.paper)links.append(link({en:'Read paper ↗',ko:'논문 읽기 ↗'},p.paper));if(p.code)links.append(link('Code ↗',p.code));body.append(links);row.append(meta,body);return row;}):[empty()]));
+ for(const kind of ['international','domestic'])target(kind).replaceChildren(...(d[kind].length?d[kind].map(p=>{const row=el('article',undefined,'publication');const meta=el('div',undefined,'pub-meta');meta.append(el('span',p.venue,'venue'),el('div',p.date,'pub-date'));const body=el('div');body.append(el('h4', p.title));
+
+if (p.description) {
+  body.append(el('p', p.description));
+}
+
+if (Array.isArray(p.authors) && p.authors.length > 0) {
+  const authors = el('p', undefined, 'pub-authors');
+
+  p.authors.forEach((name, index) => {
+    if (index > 0) {
+      authors.append(document.createTextNode(', '));
+    }
+
+    const isMe = ['daehee kang', '강대희'].includes(
+      name.replace(/[†‡*]/g, '').trim().toLowerCase()
+    );
+    const cleanName = name.replace(/†/g, '').trim();
+ 
+    authors.append(
+      el(isMe ? 'strong' : 'span', cleanName, isMe ? 'author-me' : undefined)
+    );
+    
+    if (name.includes('†')) {
+      authors.append(el('sup', '†', 'author-mark'));
+    }
+   
+  });
+
+  body.append(authors);
+ if (p.authors.some(name => name.includes('†'))) {
+  body.append(
+    el('small', {
+      en: '† Corresponding author',
+      ko: '† 교신저자'
+    }, 'pub-author-note')
+  );
+}
+}const links=el('div',undefined,'pub-links');if(p.paper)links.append(link({en:'Read paper ↗',ko:'논문 읽기 ↗'},p.paper));if(p.code)links.append(link('Code ↗',p.code));body.append(links);row.append(meta,body);return row;}):[empty()]));
  target('project-list').replaceChildren(...d.projects.map(p=>{const row=el('article',undefined,'project'),meta=el('div'),body=el('div');meta.append(el('div',p.category,'category'),el('small',p.date));body.append(el('h3',p.title),el('p',p.description));const tags=el('div',undefined,'tags');tags.append(...p.tags.map(s=>el('span',s,'tag')));body.append(tags);if(p.url)body.append(link({en:'View project ↗',ko:'프로젝트 보기 ↗'},p.url));row.append(meta,body);return row;}));
  target('patent-list').replaceChildren(...(d.patents.length?d.patents.map(p=>{const row=el('article',undefined,'timeline-row');row.append(el('h3',p.title),el('p',p.description));if(p.url)row.append(link({en:'View patent ↗',ko:'특허 보기 ↗'},p.url));return row;}):[empty()]));
  target('skill-list').replaceChildren(...d.skills.map(s=>{const group=el('div',undefined,'skill-group'),tags=el('div',undefined,'tags');tags.append(...s.items.map(x=>el('span',x,'tag')));group.append(el('h3',s.title),tags);return group;}));
