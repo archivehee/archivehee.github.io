@@ -1,4 +1,4 @@
-/* 00. GENERAL RULES �� Colors, fonts, layout, accessibility */
+/* 00. GENERAL RULES - Colors, fonts, layout, accessibility */
 :root {
   --ink: #3d3935;
   --muted: #746e66;
@@ -40,11 +40,13 @@ a {
   text-decoration: none;
 }
 
-a: hover {
+a:hover {
   color: var(--coffee);
 }
 
-a: focus-visible, button:focus-visible, summary:focus-visible {
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
   outline: 3px solid #aa8762;
   outline-offset: 5px;
 }
