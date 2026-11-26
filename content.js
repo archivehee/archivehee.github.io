@@ -34,7 +34,7 @@ window.PORTFOLIO = {
     {title:'A Comparative Study of Machine Learning and DeepLearning Methods for Water Pipeline Leakage Classification',
      venue:'KSC 2025',
      date:'2025.12',
-     authors: ['Daehee Kang', 'Yeon-Chang Lee†'],
+     authors: ['Wonjune Lee','Daehee Kang', 'Kwang-ju Kim','Yeon-Chang Lee†'],
 }
   ],
   projects:[{
